@@ -97,8 +97,26 @@ def count_event_type_by_team(data, team_name, event_type_name):
 def average_pass_length_by_team(data, team_name):
     """
     Calculate the average pass length for the provided team to 1 decimal place
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+        team_name (str): The name of the team for which the data should
+        be filtered.
+
+    Returns:
+        float: Returns the average pass length for the provided team to
+        1 decimal place.
     """
-    return
+    pass_lengths = []
+    for row in data:
+        if row['team_name'] == team_name:
+            if row['pass_length'] != '':
+                pass_lengths.append(float(row['pass_length']))
+
+    average = sum(pass_lengths)/len(pass_lengths)
+
+    return round(average, 1)
 
 
 def filter_players_by_position(data, position_name):

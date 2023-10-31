@@ -196,4 +196,3 @@ def count_shots_by_player(data, player_name):
                 shot_ids.add(row['id'])
 
     return len(shot_ids)
-

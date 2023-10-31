@@ -159,12 +159,21 @@ def count_successful_passes(data):
     return count
 
 
-
 def filter_by_period(data, period):
     """
-    Return a list of events that occurred in the provided period (e.g., 1 or 2).
+    Return a list of events that occurred in the provided period
+    (e.g., 1 or 2).
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+        period (str): The number of the selected period as a string.
+
+    Returns:
+        list of dictionaries: Returns a dataset containing only the data
+        that corresponds to the selected period.
     """
-    return
+    return list(filter(lambda x: x['period'] == period, data))
 
 
 def count_shots_by_player(data, player_name):

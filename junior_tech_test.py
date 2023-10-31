@@ -179,5 +179,21 @@ def filter_by_period(data, period):
 def count_shots_by_player(data, player_name):
     """
     Count the number of shots taken by the provided player.
+
+    Args:
+        data (list of dictionaries): Dataset that has been extracted
+        from a CSV file.
+        player_name (str): The name of the player for which the data should
+        be filtered.
+
+    Returns:
+        int: Returns the number of shots taken by the provided player.
     """
-    return
+    shot_ids = set()
+    for row in data:
+        if row['player_name'] == player_name:
+            if row['event_type_name'] == 'Shot':
+                shot_ids.add(row['id'])
+
+    return len(shot_ids)
+

@@ -1,9 +1,25 @@
+import csv
+from collections import Counter
+
+
 def read_csv_file(file_path):
     """
     Read a CSV file and return its content as a list of dictionaries.
-    """
-    return
 
+    Args:
+        filepath (str): The filepath of the CSV data.
+
+    Returns:
+        list of dictionaries: A list of dictionaries containing data
+        from the CSV mapped to their corresponding headers.
+    """
+
+    with open(file_path, newline='')as f:
+        reader = csv.DictReader(f)
+
+        return [row for row in reader]
+
+        
 def get_unique_teams(data):
     """
     Return a set of unique team names from the provided data.

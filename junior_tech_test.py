@@ -55,8 +55,18 @@ def get_most_common_event_type(data):
 def filter_by_team(data, team_name):
     """
     Filter the data by the provided team name and return the filtered data.
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+        team_name (str): The name of the team for which the data should
+        be filtered.
+
+    Returns:
+        list of dictionaries: Returns a dataset containing only the data
+        that corresponds to the selected team.
     """
-    return
+    return list(filter(lambda x: x['team_name'] == team_name, data))
 
 
 def count_event_type_by_team(data, team_name, event_type_name):

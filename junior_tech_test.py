@@ -142,8 +142,22 @@ def filter_players_by_position(data, position_name):
 def count_successful_passes(data):
     """
     Count the number of successful passes (not considering pass outcome).
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+
+    Returns:
+        int: Returns the number of successful passes .
     """
-    return
+    count = 0
+    for row in data:
+        if row['event_type_name'] == 'Pass':
+            if row['outcome_name'] == '':
+                count += 1
+
+    return count
+
 
 
 def filter_by_period(data, period):

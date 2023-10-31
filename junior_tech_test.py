@@ -38,8 +38,18 @@ def get_unique_teams(data):
 def get_most_common_event_type(data):
     """
     Return the most common event type name from the provided data.
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+
+    Returns:
+        str: Returns the most common event type name
     """
-    return
+
+    event_types = [row.get('event_type_name') for row in data]
+
+    return Counter(event_types).most_common(1)[0][0]
 
 
 def filter_by_team(data, team_name):

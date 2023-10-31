@@ -122,8 +122,21 @@ def average_pass_length_by_team(data, team_name):
 def filter_players_by_position(data, position_name):
     """
     Return a list of player names who play at the provided position.
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+        position_name (str): The name of the player position
+        for which the data should be filtered.
+
+    Returns:
+        set: Returns the unique name of each player for the selected
+        position.
     """
-    return
+    players = filter(
+        lambda x: x['player_position_name'] == position_name, data)
+
+    return set(row['player_name'] for row in players)
 
 
 def count_successful_passes(data):

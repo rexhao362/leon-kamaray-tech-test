@@ -72,8 +72,26 @@ def filter_by_team(data, team_name):
 def count_event_type_by_team(data, team_name, event_type_name):
     """
     Count the number of events of a specific type for a given team.
+
+    Args:
+        data (list of dictionaries): Dataset that has been
+        extracted from a CSV file.
+        team_name (str): The name of the team for which the data should
+        be filtered.
+        event_type_name (str): The name of the type of event
+        for which the data should be filtered.
+
+    Returns:
+        int: Returns the number of events of  the selected type
+        for the selected team.
     """
-    return
+    count = 0
+    for row in data:
+        if row.get('team_name') == team_name:
+            if row.get('event_type_name') == event_type_name:
+                count += 1
+
+    return count
 
 
 def average_pass_length_by_team(data, team_name):
